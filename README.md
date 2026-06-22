@@ -1,72 +1,124 @@
 # ClearPath AI – Student Benefits Navigator
 
-AI-powered assistant that matches students to scholarships, fee reimbursements,
-and skill-development programs, then generates a personalized action plan.
+AI-powered assistant that helps students discover scholarships, fee reimbursements, and skill-development programs based on their profile and eligibility.
 
-## Stack
-- Frontend: HTML, CSS, JavaScript
-- Backend: Python, Flask
-- AI: Gemini API (`gemini-1.5-flash`)
-- Data: `programs.json` (5 programs)
+## Overview
 
-## Setup
+ClearPath AI simplifies access to student support systems by matching users with relevant educational benefits and generating a personalized action plan.
+
+The platform analyzes student details such as:
+
+* Age
+* Education level
+* Caste category
+* Family income
+* State
+* Academic performance
+
+It then identifies eligible programs and explains:
+
+* Why the student qualifies
+* Required documents
+* Application deadlines
+* Official portal links
+* Recommended next steps
+
+The project is designed to make public support systems easier to understand and navigate, especially for students who may find eligibility rules confusing.
+
+---
+
+# Features
+
+* AI-powered eligibility guidance
+* Scholarship and reimbursement matching
+* Personalized action plans
+* Transparent eligibility checking
+* Dynamic program database using JSON
+* Responsive and clean user interface
+* Works even without AI API configuration
+* Easy to expand with new programs
+
+---
+
+# Tech Stack
+
+## Frontend
+
+* HTML
+* CSS
+* JavaScript
+
+## Backend
+
+* Python
+* Flask
+
+## AI Integration
+
+* Gemini API (`gemini-1.5-flash`)
+
+## Data Storage
+
+* `programs.json`
+
+---
+
+# How It Works
+
+1. Student enters personal and academic details.
+2. The eligibility engine checks all available programs.
+3. The system evaluates:
+
+   * Income limits
+   * Education requirements
+   * Category eligibility
+   * Age limits
+   * State restrictions
+   * Minimum marks
+4. Eligible programs are displayed with detailed guidance.
+5. Gemini AI generates:
+
+   * Plain-language explanations
+   * Personalized action plans
+6. Results are shown with transparency and supporting details.
+
+---
+
+# Run the Application
+
+Open in browser:
 
 ```bash
-cd clearpath-ai
-pip install -r requirements.txt
+https://website-update--myamini810.replit.app
 ```
 
-Get a free Gemini API key from https://aistudio.google.com/app/apikey, then:
+---
 
-```bash
-export GEMINI_API_KEY="your_key_here"   # Windows: set GEMINI_API_KEY=your_key_here
-python app.py
-```
+# AI Fallback Support
 
-Open http://127.0.0.1:5000 in your browser.
+The application works even without a Gemini API key.
 
-**Note:** the app runs fully without a Gemini key too — it falls back to
-template-based explanations and a generic action plan, so the eligibility
-engine and UI always work even without AI configured (useful for demoing
-quickly or if the API quota runs out).
+If AI is unavailable:
 
-## How it works
+* Eligibility checking still works
+* Template-based explanations are used
+* Generic action plans are generated
 
-1. Student fills in: name, age, education level, caste category, family
-   income, state, Class 12 marks.
-2. `check_eligibility()` in `app.py` runs the student against every rule
-   in `programs.json` (income, education, category, age, state, marks) and
-   records exactly which rule failed for transparency.
-3. Gemini is prompted with the student's profile and matched programs to
-   produce a plain-language explanation and a 6-step action plan.
-4. Results page shows: eligible programs (with documents, deadline, portal
-   link, source), why-you-qualify reasons for non-matches, action plan, and
-   a disclaimer.
+---
+# Example Use Cases
 
-## Project structure
+* Scholarship discovery
+* Fee reimbursement assistance
+* Skill-development guidance
+* Student welfare navigation
+* Educational support awareness
 
-```
-clearpath-ai/
-├── app.py              # Flask routes + eligibility engine + Gemini calls
-├── programs.json        # 5 program definitions (edit to add more)
-├── requirements.txt
-├── templates/
-│   └── index.html       # Form + results UI
-└── static/
-    ├── style.css
-    └── script.js         # Form validation + render results
-```
+---
 
-## Adding a new program
 
-Add an object to `programs.json` with the same fields as the existing
-entries (`income_limit`, `education_levels`, `categories`, `min_age`,
-`max_age`, `states`, `min_marks_percent`, `benefit`, `portal`, `deadline`,
-`documents`, `source`, `short_desc`). No code changes needed — the
-eligibility engine reads the file dynamically.
 
-## Disclaimer shown in-app
 
-This tool provides guidance only. Eligibility shown is based on the
-information provided and may not reflect the latest government rules.
-Final eligibility decisions are made by the relevant authorities.
+
+
+
+
